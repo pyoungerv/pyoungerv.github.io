@@ -1,0 +1,153 @@
+﻿/**********************************
+/ tile
+/**********************************
+
+
+
+
+
+
+/**********************************/
+/* forms - typically for wiz style interactions */
+/**********************************/
+.form-slidecontainer {
+    position: relative;
+    min-height: 50px;
+    right: 0px;
+    left: 0px;
+    margin: 15px;
+    overflow: hidden;
+}
+
+.form-slide {
+    position: absolute;
+    width: 100%;
+}
+
+.form-text {
+    margin: 10px;
+}
+
+.form-button {
+    margin: 10px 8px 10px 8px;
+    background-color: #68c174;
+    color: white;
+    padding: 10px;
+    box-shadow: 3px 3px 0px 0px rgb(200,200,200);
+    text-align: center;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+    .form-button.hideshadow {
+        box-shadow: initial !important;
+    }
+
+.form-footer {
+    background-color: white;
+    color: #404040;
+    background-image: initial;
+    font-weight: initial;
+}
+
+    .form-footer > .ui-grid-a > * > div {
+        margin: 10px 8px 10px 8px;
+    }
+
+.ui-content.auto-expand {
+    position: relative;
+    padding: 0px;
+}
+
+/**********************************/
+/*shared widgets*/
+/**********************************/
+.hovericon {
+    display: none;
+    z-index: 2000;
+    position: absolute;
+    top: 4em;
+    width: 64px;
+    height: 64px;
+    /*background-color: white;*/
+    background-size: cover;
+}
+
+.headline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#backbtn {
+    left: 1em;
+    /*border-radius: 32px;*/
+    background-image: url('../images/icons/left_round-128-py.png');
+}
+
+#menubtn {
+    right: 1em;
+    /*border-radius: 32px;*/
+    background-image: url('../images/icons/activity_feed-128-py.png');
+}
+
+/*tile styles*/
+.tile {
+    position: relative;
+    margin: 1em;
+    box-shadow: 3px 3px 0px 0px rgb(200,200,200);
+    background-color: white;
+    border-width: 0px;
+    height: 10em;
+    cursor: pointer;
+}
+
+    .tile .leftimg {
+        position: absolute;
+        top: 0px;
+        right: 50%;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    .tile .content {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 50%;
+        margin: 0.5em;
+        overflow: hidden;
+        font-size: 1.2em;
+        line-height: 1.5em;
+        height: 9em; /* 6 lines */
+    }
+
+    .tile .headline {
+    }
+
+    .tile .body {
+        font-weight: normal;
+    }
+/*.tile .body::after {
+        content:"...";
+        font-weight: bold;
+        position: absolute;
+        bottom:0;
+        right:0;
+        padding:0 20px 1px 45px;
+        background:url(ellipsis_bg.png) repeat-y;
+    }*/
+.post {
+    background-color: white;
+}
+
+    .post .postimg {
+        height: 10em;
+    }
+
+
+/*debuggin - slow transition*/
+/*.in, .out {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 3000ms !important;
+}*/
+

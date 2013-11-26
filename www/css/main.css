@@ -1,0 +1,130 @@
+﻿/**********************************/
+/*special settings*/
+/**********************************/
+body {
+    /*prevent user selection*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+
+/**********************************/
+/*app widgets*/
+/**********************************/
+#x-menu-footer {
+    z-index: 1000;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 80px;
+    background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    /*
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: end;
+    */
+}
+
+.footer-btn {
+    width: 72px;
+    height: 72px;
+    opacity: 0.6;
+}
+
+    .footer-btn:active {
+        opacity: 1;
+    }
+
+#back-btn {
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    cursor:pointer;
+}
+
+#menu-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:8px;
+    cursor:pointer;
+}
+
+.header-logo {
+    width: 36px;
+    height: 36px;
+}
+
+
+/**********************************/
+/*shared layout tools*/
+/**********************************/
+.vmargin > *:not(:first-child) {
+    margin-top: 1rem;
+}
+
+.cols {
+    display: -webkit-box;
+}
+
+    .cols > * {
+        width: 1%;
+        -webkit-box-flex: 1;
+    }
+
+.fill {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.bg-center {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-center.bg-top {
+    background-position-y: 0px;
+}
+.bg-center.bg-contain {
+    background-size: contain;
+}
+
+/**********************************/
+/*hardware accelerated transitions*/
+/**********************************/
+.fadeable {
+    /*-webkit-transform: translateZ(0);*/
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.faded {
+    opacity: 0.80;
+}
+
+.fadeout {
+    opacity: 0;
+}
+
+.slideable {
+    -webkit-transition: left 0.5s ease-out, right 0.5s ease-out;
+    transition: left 0.5s ease-out, right 0.5s ease-out;
+}
+
+.slideright {
+    left: 120%;
+}
+
+.slideleft {
+    right: 120%;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,358 @@
+<!doctype html>
+<html class="no-js ui-mobile-rendering" lang="en">
+<head>
+    <title>Hubbub</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--styles-->
+
+    <!--jquery mobile: must be updated with version-->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.0-beta.1.css" /> 
+    <!--app styles-->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/templates.css" />
+
+
+    <!--scripts-->
+    
+    <!--phonegap: not included in github repo because phonegap build wants it removed.  note:  this raises the device ready event-->
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <!--pluggins: added after phonegap-->
+    <script type="text/javascript" src="PushNotification.js"></script>
+     
+    <!--load libraries: jquery, parse (parse contains backbone)-->
+    <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js" ></script>
+    <script type="text/javascript" src="js/libs/parse-1.2.12.min.js" ></script>
+    <!--bootstrap: device and setup functions to be performed immediately (before require etc)-->
+    <script type="text/javascript" src="js/bootstrap.js" ></script>
+    <!--load jqmobile: load late to handle custom init in bootstrap-->
+    <script type="text/javascript" src="js/libs/jquery.mobile-1.4.0-beta.1.min.js" ></script>
+    <!--load after jqmobile, it interrupts jqmobile-->
+    <script type="text/javascript" src="js/libs/require-2.1.6.min.js" ></script>
+    
+    <!--main-->
+    <script type="text/javascript" src="js/main.js" ></script>
+     
+</head>
+<body>
+
+    <!---------------------------------------------
+        App Elements
+    ---------------------------------------------->
+
+    <!--splash page-->
+    <div id="splash" data-role="page" ></div>
+
+    <!--main-footer-tpl-->
+    <div id="main-footer-tpl" style="display:none;">
+        <img id="menu-btn" class="footer-btn" src="images/menu-black.png">
+        <img id="back-btn" class="footer-btn" style="display:none;" src="images/back-arrow.png">
+    </div>
+
+
+    <!---------------------------------------------
+        Templates
+    ---------------------------------------------->
+
+    <!---------------------------------------------
+        home page
+    ---------------------------------------------->
+    <script type="text/template" id="tpl-home">
+
+        <div data-role="header" data-position="fixed" >
+            <img class="header-logo ui-btn-left" src="images/paramount-icon.png">
+            <h1>Inbox</h1>
+        </div>
+
+        <div data-role="content">
+            <ul data-role="listview" class="tpl tile-list"></ul>
+        </div>
+
+    </script>
+
+    
+    <!---------------------------------------------
+        Tile List Page
+    ---------------------------------------------->
+    <script type="text/template" id="tpl-tilelist-page">
+
+        <div data-role="header" data-position="fixed" >
+            <h1><%=page_title%></h1>
+        </div>
+
+        <div data-role="content" >
+            <ul data-role="listview" class="tpl tile-list"></ul>
+        </div>
+
+    </script>
+
+    <!--tile template-->
+    <script type="text/template" id="tpl-tile">
+        <li class="tpl tile">
+            <div class="tile-left bg-center <% if(d.leftimagecss) { %><%=d.leftimagecss %><% } %>" 
+                style="background-image:url('<%=d.leftimage%>');" ></div>
+            <div class="tile-right" >
+                <% if(d.supertitle) { %> <div class="tile-supertitle" ><%=d.supertitle %></div> <% } %>
+                <div class="tile-headline" ><%=d.headline%></div>
+                <div class="tile-text" ><%=d.text%></div>
+            </div>
+        </li>
+    </script>
+
+
+    <!---------------------------------------------
+        post page
+    ---------------------------------------------->
+    <script type="text/template" id="tpl-post">
+
+        <div data-role="content" class="vmargin post-content">
+        </div>
+
+    </script>
+
+    <!--------------------------------------
+        post-content templates
+    --------------------------------------->
+
+    <!--post-content-image template-->
+    <script type="text/template" id="tpl-post-content-image">
+        
+        <div class="post-content-image bg-center <% if(d.image_css) { %><%=d.image_css %><% } %>" 
+            style="background-image:url('<%=d.url%>');" ></div>
+
+    </script>
+
+    <!--post-content-headline template-->
+    <script type="text/template" id="tpl-post-content-headline">
+        
+        <div class="post-content-headline"><%=text%></div>
+
+    </script>
+
+    <!--post-content-text template-->
+    <script type="text/template" id="tpl-post-content-text">
+        
+        <div class="post-content-text"><%=text%></div>
+
+    </script>
+
+    <!--post-content-button template-->
+    <script type="text/template" id="tpl-post-content-button">
+        
+        <div class="post-content-button"><%=text%></div>
+
+    </script>
+
+    <!--------------------------------------
+        post-form templates
+    --------------------------------------->
+
+    <!--post-form-text template-->
+    <script type="text/template" id="tpl-post-form-text">
+        
+        <label for="<%=name%>"><%=label%></label>
+        <input type="<%=input_type%>" name="name" id="<%=name%>" value="" />
+
+    </script>
+
+
+    <!---------------------------------------------
+        Standard Page (note:  future model for templates???)
+    ---------------------------------------------->
+    <script type="text/template" id="tpl-standard-page">
+
+        <div data-role="header" data-position="fixed" >
+            <h1><%=d.page_title%></h1>
+        </div>
+
+        <div data-role="content" class="page-content">
+        </div>
+
+    </script>
+
+    <!--event listitem template (note:  future model for templates???)-->
+    <script type="text/template" id="tpl-event-listitem">
+
+        <div class="tpl tpl-event-listitem">
+            <div class="lo-left bg-center" style="background-image:url('<%=d.image_left%>');" ></div>
+            <div class="lo-right" >
+                <div class="data-name" ><%=d.name%></div>
+                <div class="data-date" ><%=d.date%></div>
+            </div>
+        </div>
+
+    </script>
+
+
+    <!-- End Templates -->
+
+</body>
+</html>
+
+
+
+
+    <!--diagnostics window-->
+<!--    <div id="diag" style="position:absolute;bottom:20px;left:20px;right:20px;background-color:lightgoldenrodyellow;z-index:1000;"></div>-->
+
+    <!--hover icons-->
+<!--    <div id="backbtn" class="hovericon fadeable faded"></div>
+    <div id="menubtn" class="hovericon fadeable faded"></div>-->
+
+<!--data-disable-page-zoom="false"-->
+    <!-- Templates -->
+    <!-- Login Template -->
+    <script type="text/template" id="login-template">
+
+        <div data-role="header" data-position="fixed" data-disable-page-zoom="false">
+            <h1>Log In</h1>
+        </div>
+
+        <div data-role="content">
+            <form class="login-form">
+                <div class="error" style="display:none"></div>
+                <input type="text" id="login-email" placeholder="email" />
+                <input type="password" id="login-password" placeholder="password" />
+                <button>Log In</button>
+            </form>
+        </div>
+    </script>
+
+    <!-- Tester Template -->
+    <script type="text/template" id="tester-template">
+
+        <div data-role="header" data-position="fixed" data-disable-page-zoom="false">
+            <h1>Tester</h1>
+        </div>
+
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true">
+                <li><a id="startBtn" href="#">Start</a></li>
+                <li><a id="testParseBtn" href="#">Test Parse</a></li>
+                <li><a id="testContactsBtn" href="#">Test Contacts</a></li>
+            </ul>
+        </div>
+
+    </script>
+
+    <!-- Shared Page Form Templates -->
+
+    <!-- 1 Button Form Footer-->
+    <script type="text/template" id="tpl-form-1btnfooter">
+        <div class="form-footer" data-role="footer" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false">
+            <div class="form-button button1"><%=button1%></div>
+        </div>
+    </script>
+
+    <!-- 2 Button Form Footer-->
+    <script type="text/template" id="tpl-form-2btnfooter">
+        <div class="form-footer cols" data-role="footer" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false" >
+            <div class="form-button button1"><%=button1%></div>
+            <div class="form-button button2"><%=button2%></div>
+        </div>
+    </script>
+
+    <!-- TwoColumnGrid Template -->
+    <script type="text/template" id="twocolumngrid-template">
+        <div class="ui-grid-a">
+            <div class="ui-block-a"><%=block0%></div>    
+            <div class="ui-block-b"><%=block1%></div>
+        </div>
+    </script>
+
+    <!-- Page Footer Template -->
+    <script type="text/template" id="page-footer-template">
+        <div class="form-footer" data-role="footer" data-position="fixed" data-disable-page-zoom="false" data-tap-toggle="false"><%=contents%></div>
+    </script>
+
+    <!-- Form Starter Template -->
+    <script type="text/template" id="form-starter-template">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <div class="headline"><%=headline%></div>
+            </div>    
+            <div class="ui-block-b">
+                <div class="form-button"><%=button%></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Form Page Template -->
+    <script type="text/template" id="form-page-template">
+
+        <div data-role="header" >
+            <h1>My Form</h1>
+        </div>
+
+        <div class="form-content-full auto-expand" data-role="content" >
+        </div>
+
+        <div class="form-footer" data-role="footer" data-position="fixed" data-disable-page-zoom="false">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <div class="form-button go-prev">Back</div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="form-button go-next">Next</div>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+    <!-- Home Template -->
+    <script type="text/template" id="home-template">
+
+        <div data-role="header" data-position="fixed" data-disable-page-zoom="false">
+            <h1>My Feed</h1>
+        </div>
+
+        <div data-role="content">
+            <ul id="homelist" data-role="listview"></ul>
+        </div>
+
+    </script>
+
+    <script type="text/template" id="tile-template">
+        <li class="tile">
+            <div class="leftimg" style="background-image:url('<%=imageurl%>');" ></div>
+            <div class="content" >
+                <div class="headline" ><%=headline%></div>
+                <div class="body" ><%=text%></div>
+            </div>
+        </li>
+    </script>
+
+    <script type="text/template" id="tile-text-template">
+        <li class="tile tile-text">
+            <div class="text" ><%=text%></div>
+        </li>
+    </script>
+
+    <script type="text/template" id="post-panel-img-template">
+        <li class="tile" style="background-image:url('<%=imageurl%>');" >
+        </li>
+    </script>
+
+    <script type="text/template" id="post-panel-text-template">
+        <li class="tile">
+            <%=text%>
+        </li>
+    </script>
+
+    <!-- NewsPost Template -->
+    <script type="text/template" id="newspost-template">
+
+        <div data-role="header" data-position="fixed" data-disable-page-zoom="false">
+            <h1><%=title%></h1>
+        </div>
+
+        <div class="vmargin" data-role="content">
+            <div class="postimg" style="background-image:url('<%=imageurl%>');" ></div>
+            <div class="posttext" ><%=text%></div>
+        </div>
+
+    </script>
+
+    <!-- End Templates -->

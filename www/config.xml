@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<widget xmlns = "http://www.w3.org/ns/widgets"
+  xmlns:gap = "http://phonegap.com/ns/1.0"
+  id        = "com.paulyounger.hubbub"
+  versionCode = "004" 
+  version   = "0.0.4">
+
+  <!-- versionCode is optional and Android only -->
+  
+  <name>Hubbub</name>
+
+  <description>
+        it's still the bomb
+  </description>
+
+  <author href="" email="">
+        Paul Younger
+  </author>
+
+  <preference name="phonegap-version" value="2.9.0" />
+  <preference name="webviewbounce" value="false" />
+  
+  <!--plugins-->
+  <gap:plugin name="com.phonegap.plugins.pushplugin" />
+  
+</widget>
+
+
+ 
