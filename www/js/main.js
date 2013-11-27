@@ -9,7 +9,8 @@ require.config({
 
 //all ready
 window.main = function () {
-    
+    console.log('starting main');
+
     //set device events
     //document.addEventListener("backbutton", onBackKeyDown, false);
     //function onBackKeyDown() {
@@ -41,6 +42,7 @@ window.main = function () {
 
     }, 10);
 }
+window.readyCheck();//start if everything else is ready (usually happens in debug mode)
 
 
 ////set up requirejs config

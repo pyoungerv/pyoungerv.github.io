@@ -1,13 +1,12 @@
 ﻿
 //ready check
 window.readyCheck = function () {
-
+    
     //check flags
     if (!window.deviceready) return;
     if (!window.jqmready) return;
-    console.log('bootstrap done');
 
-    //all ready
+    //all ready, run main
     if (window.main) window.main();
 
 }
@@ -52,6 +51,9 @@ function onDeviceReady() {
 }
 document.addEventListener('deviceready', onDeviceReady, true);
 window.addEventListener('deviceready', onDeviceReady, true);
+
+//run in debug mode
+if (!window.device) { window.dispatchEvent(new Event('deviceready')); }
 
 //notifications
 function setupNotifications() {
