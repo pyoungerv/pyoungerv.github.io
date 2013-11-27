@@ -132,7 +132,7 @@
         tile_text: "Jack Ryan is back.",
         content: [{
             type: 'post.content.image',
-            url: 'images/content/shadowrecruit2.jpg',
+            url: 'images/content/shadowrecruit2.jpg?123',
             image_css: 'bg-top',
         }, {
             type: 'post.content.headline',
