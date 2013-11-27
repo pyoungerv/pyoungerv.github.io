@@ -132,7 +132,7 @@
         tile_text: "Jack Ryan is back.",
         content: [{
             type: 'post.content.image',
-            url: 'images/content/shadowrecuit2.jpg',
+            url: 'images/content/shadowrecruit2.jpg',
             image_css: 'bg-top',
         }, {
             type: 'post.content.headline',
@@ -142,7 +142,7 @@
             text: "Jack Ryan, as a young covert CIA analyst, uncovers a Russian plot to crash the U.S. economy with a terrorist attack."
         }, {
             type: 'post.content.image',
-            url: 'images/content/shadowrecuit3.jpg',
+            url: 'images/content/shadowrecruit3.jpg',
             image_css: 'bg-top',
         }, {
             type: 'post.content.button',
