@@ -13,11 +13,11 @@
         type: 'post.type.invite',
         tile_supertitle: "YOU'RE INVITED",
         tile_headline: "Screening:<br>Terminator 5",
-        tile_image: 'http://www.joblo.com/newsimages1/t5-title-image.jpg',
+        tile_image: 'images/content/t5.jpg',
         tile_text: "Join us for a special pre-screening.",
         content: [{
             type: 'post.content.image',
-            url: 'http://www.joblo.com/newsimages1/t5-title-image.jpg',
+            url: 'images/content/t5.jpg',
             image_css: 'bg-top',
         }, {
             type: 'post.content.headline',
@@ -40,11 +40,11 @@
         type: 'post.type.news',
         tile_supertitle: "COMING SOON",
         tile_headline: "Anchorman 2",
-        tile_image: 'http://ia.media-imdb.com/images/M/MV5BMTM5NTY0NTUzOV5BMl5BanBnXkFtZTcwMDY2MzA3OQ@@._V1._SX453_SY671_.jpg',
+        tile_image: 'images/content/anchorman1.jpg',
         tile_text: "The Legend Continues",
         content: [{
             type: 'post.content.image',
-            url: 'http://ia.media-imdb.com/images/M/MV5BMjE5ODk0NjQzNV5BMl5BanBnXkFtZTgwODk4MDA1MDE@._V1._SX464_SY690_.jpg',
+            url: 'images/content/anchorman2.jpg',
         }, {
             type: 'post.content.headline',
             text: "The Legend Continues"
@@ -127,12 +127,12 @@
         type: 'post.type.news',
         tile_supertitle: "COMING SOON",
         tile_headline: "Jack Ryan: Shadow Recruit",
-        tile_image: 'http://ia.media-imdb.com/images/M/MV5BMTU1MzYyOTk0NF5BMl5BanBnXkFtZTgwMjI5ODYzMDE@._V1._SX640_SY948_.jpg',
+        tile_image: 'images/content/shadowrecruit1.jpg',
         tile_image_css: 'bg-top',
         tile_text: "Jack Ryan is back.",
         content: [{
             type: 'post.content.image',
-            url: 'http://ia.media-imdb.com/images/M/MV5BMjE0MzUxODU1OF5BMl5BanBnXkFtZTcwMjE1NzYzOA@@._V1._SX640_SY426_.jpg',
+            url: 'images/content/shadowrecuit2.jpg',
             image_css: 'bg-top',
         }, {
             type: 'post.content.headline',
@@ -142,7 +142,7 @@
             text: "Jack Ryan, as a young covert CIA analyst, uncovers a Russian plot to crash the U.S. economy with a terrorist attack."
         }, {
             type: 'post.content.image',
-            url: 'http://ia.media-imdb.com/images/M/MV5BMTc2MzI5NTY4OF5BMl5BanBnXkFtZTgwNTgyNTU1MDE@._V1._SX640_SY450_.jpg',
+            url: 'images/content/shadowrecuit3.jpg',
             image_css: 'bg-top',
         }, {
             type: 'post.content.button',
@@ -162,12 +162,12 @@
         type: 'post.type.news',
         tile_supertitle: "NOW PLAYING",
         tile_headline: "The Wolf of Wall Street",
-        tile_image: 'http://ia.media-imdb.com/images/M/MV5BMTQ5OTI2MTQ1MV5BMl5BanBnXkFtZTcwMjY0Njk2OQ@@._V1._SX640_SY939_.jpg',
+        tile_image: 'images/content/wolf0.jpg',
         //tile_image_css: 'bg-top',
         tile_text: "How Money Destroyed A Wall Street SuperMan",
         content: [{
             type: 'post.content.image',
-            url: 'http://ia.media-imdb.com/images/M/MV5BNTMyMzE4NzA4N15BMl5BanBnXkFtZTgwNzY3NTIxMDE@._V1._SX640_SY427_.jpg',
+            url: 'images/content/wolf1.jpg',
         }, {
             type: 'post.content.headline',
             text: "The Wolf of Wall Streen"
@@ -176,7 +176,7 @@
             text: "Based on the true story of Jordan Belfort, from his rise to a wealthy stockbroker living the high life to his fall involving crime, corruption and the federal government."
         }, {
             type: 'post.content.image',
-            url: 'http://ia.media-imdb.com/images/M/MV5BMTM5NDM2MjYzNF5BMl5BanBnXkFtZTgwOTY3NTIxMDE@._V1._SX640_SY427_.jpg',
+            url: 'images/content/wolf2.jpg',
         }, {
             type: 'post.content.button',
             text: "Buy Tickets",
@@ -193,12 +193,12 @@
         type: 'post.type.twitter',
         tile_supertitle: "TWITTER",
         tile_headline: "The Latest:",
-        tile_image: 'https://pbs.twimg.com/profile_images/3257880103/b8291a30b6fd7f7e66ab4ba1b70161e5.jpeg',
+        tile_image: 'images/content/paramount0.jpeg',
         //tile_image_css: 'bg-top',
         tile_text: "Announcing the Nebraska Photo Project on Flipboard. Exclusive images from and inspired by the movie. Explore it now: http://flip.it/NebraskaMovie",
         content: [{
             type: 'post.content.image',
-            url: 'https://pbs.twimg.com/profile_images/3257880103/b8291a30b6fd7f7e66ab4ba1b70161e5.jpeg',
+            url: 'images/content/paramount0.jpeg',
         }, {
             type: 'post.content.text',
             text: "Announcing the Nebraska Photo Project on Flipboard. Exclusive images from and inspired by the movie. Explore it now: http://flip.it/NebraskaMovie."
